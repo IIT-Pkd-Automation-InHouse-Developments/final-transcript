@@ -1,0 +1,33 @@
+<!--
+  Should display a table of roll number, name and department
+  of graduating students.
+
+  Have to fetch this data from a JSON of graduating students
+  (assume for now, later we will use an endpoint which will directly
+  return the JSON by doing all the hard work)
+
+-->
+<div class="search-container">
+<input type="search"
+         name="Search students"
+         placeholder="Search students by name, roll number, or department"
+         [(ngModel)]="searchText"
+         (input)="filterData()" />
+</div>
+
+<table class="student-table">
+  <thead>
+    <tr>
+      <th>Roll Number</th>
+      <th>Name</th>
+      <th>Department</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of filteredStudentData">
+      <td>{{ student.rollNumber }}</td>
+      <td>{{ student.name }}</td>
+      <td>{{ student.department }}</td>
+    </tr>
+  </tbody>
+</table>

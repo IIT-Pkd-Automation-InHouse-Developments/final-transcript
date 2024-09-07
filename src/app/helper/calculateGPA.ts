@@ -1,6 +1,6 @@
-import {Student} from "../models/StudentData";
+import {StudentCourseData} from "../models/StudentData";
 import {Grade} from "../models/Semester";
-import {Data} from "../data"
+import {courseData} from "../CourseData"
 import {round} from "@popperjs/core/lib/utils/math";
 function gradeToNum(grade : Grade) : number{
   let num;
@@ -41,7 +41,7 @@ function gradeToNum(grade : Grade) : number{
   return num;
 }
 
-export function calculateGPA(student : Student, semesterID : number): number {
+export function calculateGPA(student : StudentCourseData, semesterID : number): number {
   if(!student || !semesterID){
     return -1;
   }
@@ -53,7 +53,6 @@ export function calculateGPA(student : Student, semesterID : number): number {
   for(let i=0; i<semester.courses.length; i++){
     earnedCredits+=(gradeToNum(semester.courses[i].grade))*(semester.courses[i].credits);
   }
-  return (earnedCredits/semester.requiredCredits);
+  return parseFloat((earnedCredits / semester.requiredCredits).toFixed(2));
 }
 
-console.log(calculateGPA(Data[0],1));

@@ -1,0 +1,61 @@
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+}
+
+.student-table th, .student-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.student-table thead {
+  background-color: #007BFF; /* Blue background for header */
+  color: white;
+}
+
+.student-table th {
+  font-weight: bold;
+}
+
+.student-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Light grey background for even rows */
+}
+
+.student-table tbody tr:hover {
+  background-color: #e0e0e0; /* Slightly darker grey when hovering */
+}
+
+.student-table td {
+  color: #333; /* Dark text color for contrast */
+}
+
+.search-container {
+  width: 100%; /* Make sure it covers the width of the parent */
+  display: flex;
+  justify-content: center; /* Center the input horizontally */
+}
+
+.search-container input {
+  width: 100%; /* Full width of the container */
+  max-width: 600px; /* Optional: Limit the width for large screens */
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc; /* Normal grey border */
+  border-radius: 4px; /* Slightly rounded corners */
+  background-color: #f9f9f9; /* Subtle white background */
+  color: #333; /* Dark text color for contrast */
+  outline: none; /* Remove default outline */
+  transition: border-color 0.3s ease-in-out; /* Smooth transition for hover/focus */
+}
+
+.search-container input::placeholder {
+  color: #888; /* Grey placeholder text */
+}
+
+.search-container input:focus {
+  border-color: #007BFF; /* Blue border on focus */
+  background-color: #fff; /* White background on focus */
+}

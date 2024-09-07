@@ -1,5 +1,5 @@
 import {Semester} from "./Semester";
-export interface Student{
+export interface StudentCourseData {
   id: String;
   name: string;
   rollNumber: number;
