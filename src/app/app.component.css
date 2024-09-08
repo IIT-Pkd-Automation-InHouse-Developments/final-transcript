@@ -1,0 +1,12 @@
+/* Blue strip at the top */
+.header-strip {
+  background-color: #004080;
+  padding: 15px 0;
+  text-align: center;
+}
+
+.header-strip h1 {
+  color: white;
+  margin: 0;
+  font-size: 24px;
+}

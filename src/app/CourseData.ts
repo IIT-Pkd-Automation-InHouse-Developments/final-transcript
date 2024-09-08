@@ -1,6 +1,7 @@
 import {StudentCourseData} from "./models/StudentData";
 import {Attendance, CourseCategory, Grade} from "./models/Semester";
 import {Student} from "./models/Student";
+import {calculateGPA} from "./helper/calculateGPA";
 
 export let studentData: Student[] =
 [
@@ -1244,11 +1245,11 @@ export  let courseData: StudentCourseData[] =
 [
   {
     id: "66000",
-    name: "Suma Enjam",
+    name: "Enjam Suma",
     rollNumber: 112101015,
     department: "CSE",
-    totalCredits: 160, // for btech
-    earnedCredits: 140,
+    totalCredits: 163, // for btech
+    earnedCredits: 163,
     semestersPassed: [
       {
         semesterID: 1,
@@ -1337,7 +1338,8 @@ export  let courseData: StudentCourseData[] =
             passed: true
           },
         ],
-        gpa: 10.00
+        gpa: 10,
+        cgpa: -1,
       },
       {
         semesterID: 2,
@@ -1418,7 +1420,8 @@ export  let courseData: StudentCourseData[] =
           },
 
         ],
-        gpa:10.00
+        gpa: -1,
+        cgpa: -1,
       },
       {
         semesterID: 3,
@@ -1498,7 +1501,8 @@ export  let courseData: StudentCourseData[] =
             passed: true
           }
         ],
-        gpa: 10
+        gpa: -1,
+        cgpa: -1,
       },
       {
         semesterID: 4,
@@ -1597,8 +1601,8 @@ export  let courseData: StudentCourseData[] =
             passed: true
           }
         ],
-
-        gpa: 10
+        gpa: -1,
+        cgpa: -1,
       },
       {
         semesterID: 5,
@@ -1669,7 +1673,8 @@ export  let courseData: StudentCourseData[] =
           passed: true
         }
       ],
-        gpa: 10
+        gpa: -1,
+        cgpa: -1,
       },
       {
         semesterID: 6,
@@ -1749,7 +1754,8 @@ export  let courseData: StudentCourseData[] =
           passed: true
         }
 ],
-        gpa:10
+        gpa: -1,
+        cgpa: -1,
       },
       {
         semesterID: 7,
@@ -1811,7 +1817,8 @@ export  let courseData: StudentCourseData[] =
           passed: true
         }
       ],
-        gpa: 10
+        gpa: -1,
+        cgpa: -1,
       },
        {
         semesterID: 8,
@@ -1837,7 +1844,8 @@ export  let courseData: StudentCourseData[] =
             passed: true
           }
         ],
-      gpa: 10
+         gpa: -1,
+         cgpa: -1,
       }
     ],
   },
@@ -1936,7 +1944,8 @@ export  let courseData: StudentCourseData[] =
               passed: true
             },
           ],
-          gpa: 10.00
+          gpa: -1,
+          cgpa: -1,
         }
       ]
   }

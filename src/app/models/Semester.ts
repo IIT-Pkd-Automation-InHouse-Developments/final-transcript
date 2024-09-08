@@ -27,5 +27,6 @@ export interface Semester {
   earnedCredits: number;
   courses: Course[];
   gpa: number;
+  cgpa: number;
 
 }

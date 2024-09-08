@@ -1,37 +1,36 @@
 .transcript-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 20px;
-  background-color: #f4f4f9;
-}
-
-.page-title {
-  text-align: center;
-  color: #003366; /* Dark Blue */
 }
 
 .student-info {
   margin-bottom: 20px;
-  font-size: 16px;
+  text-align: left;
 }
 
-.student-info p {
-  margin: 5px 0;
+.page-title {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: #003366;
 }
 
 .semester-tables {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .semester-column {
-  width: 48%;
-  padding: 10px;
+  flex: 1;
+  margin: 10px;
 }
 
-.semester-column h2 {
-  text-align: center;
-  color: #003366; /* Dark Blue */
+.semester-column.odd {
+  margin-right: 20px;
 }
 
 .semester-table {
@@ -40,31 +39,21 @@
   margin-bottom: 20px;
 }
 
-.semester-table th,
-.semester-table td {
+.semester-table th, .semester-table td {
   border: 1px solid #ddd;
   padding: 8px;
-  text-align: left;
+  text-align: center;
 }
 
 .semester-table th {
-  background-color: #003366; /* Dark Blue */
+  background-color: #003366;
   color: white;
 }
 
-.semester-table tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
+.semester-table td {
+  background-color: #f9f9f9;
 }
 
 .semester-table tbody tr:hover {
-  background-color: #e6f2ff; /* Light Blue */
-  cursor: pointer;
-}
-
-.odd {
-  border-right: 2px solid #003366; /* Dark Blue */
-}
-
-.even {
-  /* No extra styling for the right column */
+  background-color: #e6f7ff;
 }
