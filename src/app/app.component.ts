@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {NgbNav, NgbNavModule} from "@ng-bootstrap/ng-bootstrap";
-import {calculateGPA} from "./helper/calculateGPA";
 import {StudentListComponent} from "./student-list/student-list.component";
 @Component({
   selector: 'app-root',

@@ -1,25 +1,27 @@
-import {Component, NgModule, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {studentData} from "../CourseData";
-import {NgFor} from "@angular/common";
+import {NgClass, NgFor, NgIf} from "@angular/common";
 import {Student} from "../models/Student";
 import {FormsModule} from "@angular/forms";
-
+import {RouterOutlet, RouterLink, Router} from "@angular/router";
 
 
 @Component({
   selector: 'app-student-list',
   standalone: true,
-  imports: [NgFor, FormsModule],
+  imports: [NgFor, FormsModule, NgIf, NgClass, RouterOutlet, RouterLink],
   templateUrl: './student-list.component.html',
   styleUrl: './student-list.component.css'
 })
 export class StudentListComponent implements OnInit{
 
   protected readonly studentData = studentData;
-  filteredStudentData: Student[] = [...this.studentData]; // Initialize with all data
+  filteredStudentData: Student[] = [...this.studentData];
   searchText: string = '';
+  protected selectedDepartment: string = '';
+  selectedStudent: number | null = null;
 
-  constructor() { }
+  constructor(private router : Router) { }
   ngOnInit(): void {
     this.filterData();
   }
@@ -34,5 +36,23 @@ export class StudentListComponent implements OnInit{
         student.department.toLowerCase().includes(searchText)
       );
     });
+  }
+
+  filterByDepartment(): void {
+    if (this.selectedDepartment) {
+      this.filteredStudentData = this.studentData.filter(student =>
+        student.department === this.selectedDepartment
+      );
+    } else {
+      this.filteredStudentData = [...this.studentData]; // Show all if no department is selected
+    }
+  }
+
+  selectStudent(index: number): void {
+    this.selectedStudent = index; // Set the selected student by index
+  }
+
+  generateNext(student:Student) {
+    this.router.navigate(['/transcript'], {queryParams: {rollNumber: student.rollNumber}})
   }
 }

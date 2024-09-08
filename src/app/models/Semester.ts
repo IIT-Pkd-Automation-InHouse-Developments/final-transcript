@@ -5,7 +5,7 @@ export enum Grade {
 export enum Attendance{
   "VG", "G", "P"
 }
-export enum Category{
+export enum CourseCategory{
   "BST", "IDC", "PME", "GCE",
   "PMT", "BEP", "BSP", "HSE",
   "CWC", "MAE", "PMP", "BET"
@@ -17,7 +17,7 @@ export interface Course {
   credits: number;
   grade: Grade;
   attendance: Attendance;
-  category: Category;
+  category: CourseCategory;
   passed: boolean;
 }
 

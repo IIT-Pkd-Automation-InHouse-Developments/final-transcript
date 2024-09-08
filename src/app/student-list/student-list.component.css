@@ -4,7 +4,9 @@
   margin: 20px 0;
   font-family: Arial, sans-serif;
 }
-
+.student-table tr {
+  cursor: pointer; /* Change cursor to pointer when hovering over rows */
+}
 .student-table th, .student-table td {
   padding: 12px 15px;
   text-align: left;
@@ -59,3 +61,99 @@
   border-color: #007BFF; /* Blue border on focus */
   background-color: #fff; /* White background on focus */
 }
+/* Filter container design */
+.filter-container {
+  display: flex;
+  justify-content: flex-end; /* Aligns the filter to the right */
+  margin-bottom: 20px;
+  padding-right: 2%;
+}
+
+.filter-label {
+  font-size: 1rem;
+  margin-right: 10px;
+  color: #000; /* Default text color */
+  padding-top: 10px;
+}
+
+.filter-select {
+  padding: 8px 16px;
+  border: 2px solid #2a9df4;
+  border-radius: 5px;
+  background-color: white;
+  color: #2a9df4;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.filter-select:focus {
+  border-color: #1c6ea4;
+}
+/* Student count message */
+.student-count {
+  text-align: center;
+  color: #1c6ea4; /* Darker blue for text */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Table styling */
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.student-table th {
+  background-color: #2a9df4;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+.student-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.student-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.student-table tr:hover {
+  background-color: #e9f6ff;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .filter-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filter-label {
+    margin-bottom: 5px;
+  }
+}
+
+/* Styling for the selected row */
+.selected-row {
+  background-color: #d1e7ff; /* Light blue to indicate selection */
+}
+
+/* Styling for the Generate button */
+button {
+  padding: 6px 12px;
+  background-color: #2a9df4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1c6ea4;
+}
+

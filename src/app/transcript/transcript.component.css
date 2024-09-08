@@ -1,0 +1,70 @@
+.transcript-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #f4f4f9;
+}
+
+.page-title {
+  text-align: center;
+  color: #003366; /* Dark Blue */
+}
+
+.student-info {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.student-info p {
+  margin: 5px 0;
+}
+
+.semester-tables {
+  display: flex;
+  justify-content: space-between;
+}
+
+.semester-column {
+  width: 48%;
+  padding: 10px;
+}
+
+.semester-column h2 {
+  text-align: center;
+  color: #003366; /* Dark Blue */
+}
+
+.semester-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.semester-table th,
+.semester-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.semester-table th {
+  background-color: #003366; /* Dark Blue */
+  color: white;
+}
+
+.semester-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.semester-table tbody tr:hover {
+  background-color: #e6f2ff; /* Light Blue */
+  cursor: pointer;
+}
+
+.odd {
+  border-right: 2px solid #003366; /* Dark Blue */
+}
+
+.even {
+  /* No extra styling for the right column */
+}

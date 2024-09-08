@@ -1,0 +1,83 @@
+<div *ngIf="student == undefined">
+  <a routerLink="/">Go home</a>
+</div>
+
+<div *ngIf="student">
+  <p>Hello, {{student.name}}</p>
+  <div class="transcript-container">
+    <!-- Student Information Section -->
+    <div class="student-info">
+      <p><strong>Name:</strong> {{ student.name }}</p>
+      <p><strong>USID:</strong> {{ student.id }}</p>
+      <p><strong>Roll No.:</strong> {{ student.rollNumber }}</p>
+      <p><strong>Department:</strong> {{ student.department }}</p>
+    </div>
+  <div class="transcript-container">
+    <h1 class="page-title">TRANSCRIPT</h1>
+
+    <div class="semester-tables">
+      <div class="semester-column odd">
+        <h2>Odd Semesters</h2>
+        <div *ngFor="let semester of oddSemesters;">
+          <h3>Semester {{ semester.semesterID }}</h3>
+          <table class="semester-table">
+            <thead>
+              <tr>
+                <th>Sno.</th>
+                <th>Course Code</th>
+                <th>Course Name</th>
+                <th>Course Category</th>
+                <th>Course Credit</th>
+                <th>Course Grade</th>
+                <th>Attendance Grade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let course of semester.courses; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ course.courseID }}</td>
+                <td>{{ course.courseTitle }}</td>
+                <td>{{ CourseCategory[course.category] }}</td>
+                <td>{{ course.credits }}</td>
+                <td>{{ Grade[course.grade] }}</td>
+                <td>{{ Attendance[course.attendance] }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="semester-column even">
+        <h2>Even Semesters</h2>
+        <div *ngFor="let semester of evenSemesters;">
+          <h3>Semester {{ semester.semesterID }}</h3>
+          <table class="semester-table">
+            <thead>
+              <tr>
+                <th>Sno.</th>
+                <th>Course Code</th>
+                <th>Course Name</th>
+                <th>Course Category</th>
+                <th>Course Credit</th>
+                <th>Course Grade</th>
+                <th>Attendance Grade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let course of semester.courses; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ course.courseID }}</td>
+                <td>{{ course.courseTitle }}</td>
+                <td>{{ CourseCategory[course.category] }}</td>
+                <td>{{ course.credits }}</td>
+                <td>{{ Grade[course.grade] }}</td>
+                <td>{{ Attendance[course.attendance] }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    </div>
+</div>

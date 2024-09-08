@@ -10,24 +10,44 @@
 <div class="search-container">
 <input type="search"
          name="Search students"
-         placeholder="Search students by name, roll number, or department"
+         placeholder="Search graduated students by name, roll number, or department"
          [(ngModel)]="searchText"
          (input)="filterData()" />
 </div>
+<div class="filter-container">
+  <label for="department" class="filter-label"><strong>Filter</strong></label>
+  <select id="department" [(ngModel)]="selectedDepartment" (change)="filterByDepartment()" class="filter-select">
+    <option value="">All</option>
+    <option value="CE">CE</option>
+    <option value="CSE">CSE</option>
+    <option value="EE">EE</option>
+    <option value="ME">ME</option>
+    <option value="DSE">DSE</option>
+  </select>
+</div>
 
+<div *ngIf="filteredStudentData.length >= 0">
+  <p>{{ filteredStudentData.length }} students found.</p>
+</div>
 <table class="student-table">
   <thead>
     <tr>
       <th>Roll Number</th>
       <th>Name</th>
       <th>Department</th>
+      <th>Transcript</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let student of filteredStudentData">
+    <tr *ngFor="let i = index; let student of filteredStudentData"
+        [ngClass]="{'selected-row': selectedStudent === i}"
+        (click)="selectStudent(i)">
       <td>{{ student.rollNumber }}</td>
       <td>{{ student.name }}</td>
       <td>{{ student.department }}</td>
+      <td>
+        <button *ngIf="selectedStudent === i" (click)="generateNext(student)">Generate</button>
+      </td>
     </tr>
   </tbody>
 </table>
