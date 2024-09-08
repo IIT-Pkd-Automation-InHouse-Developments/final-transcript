@@ -14,6 +14,10 @@
          [(ngModel)]="searchText"
          (input)="filterData()" />
 </div>
+
+<!--
+    Filter button: TODO: make search only filtered people when filter is defined.
+-->
 <div class="filter-container">
   <label for="department" class="filter-label"><strong>Filter</strong></label>
   <select id="department" [(ngModel)]="selectedDepartment" (change)="filterByDepartment()" class="filter-select">
@@ -26,7 +30,7 @@
   </select>
 </div>
 
-<div *ngIf="filteredStudentData.length >= 0">
+<div *ngIf="filteredStudentData.length > 0">
   <p>{{ filteredStudentData.length }} students found.</p>
 </div>
 <table class="student-table">
@@ -39,6 +43,7 @@
     </tr>
   </thead>
   <tbody>
+<!--  TODO: Look into ngClass -->
     <tr *ngFor="let i = index; let student of filteredStudentData"
         [ngClass]="{'selected-row': selectedStudent === i}"
         (click)="selectStudent(i)">

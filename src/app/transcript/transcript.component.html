@@ -2,9 +2,12 @@
   <a routerLink="/">Go home</a>
 </div>
 
+
 <div *ngIf="student">
-  <p>Hello, {{student.name}}</p>
+  <h1 class="page-title">TRANSCRIPT</h1>
+  <!-- Transcript Container -->
   <div class="transcript-container">
+
     <!-- Student Information Section -->
     <div class="student-info">
       <p><strong>Name:</strong> {{ student.name }}</p>
@@ -12,10 +15,13 @@
       <p><strong>Roll No.:</strong> {{ student.rollNumber }}</p>
       <p><strong>Department:</strong> {{ student.department }}</p>
     </div>
-  <div class="transcript-container">
-    <h1 class="page-title">TRANSCRIPT</h1>
 
+
+
+    <!-- Semester Tables Section -->
     <div class="semester-tables">
+
+      <!-- Odd Semesters Column -->
       <div class="semester-column odd">
         <h2>Odd Semesters</h2>
         <div *ngFor="let semester of oddSemesters;">
@@ -46,6 +52,8 @@
           </table>
         </div>
       </div>
+
+      <!-- Even Semesters Column -->
       <div class="semester-column even">
         <h2>Even Semesters</h2>
         <div *ngFor="let semester of evenSemesters;">
@@ -76,8 +84,7 @@
           </table>
         </div>
       </div>
-    </div>
-  </div>
 
     </div>
+  </div>
 </div>

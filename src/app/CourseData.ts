@@ -1258,7 +1258,7 @@ export  let courseData: StudentCourseData[] =
             courseID: "PH1010",
             courseTitle: "Physics I",
             credits: 3,
-            grade: Grade.S,
+            grade: Grade.E,
             attendance: Attendance.VG,
             category: CourseCategory.BST,
             passed: true
@@ -1336,7 +1336,7 @@ export  let courseData: StudentCourseData[] =
             passed: true
           },
         ],
-        gpa: 10,
+        gpa: -1,
         cgpa: -1,
       },
       {

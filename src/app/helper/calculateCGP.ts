@@ -1,4 +1,5 @@
 import {StudentCourseData} from "../models/StudentData";
+import{calculateGPA} from "./calculateGPA";
 
 export function calculateCGPA(student: StudentCourseData | undefined): void {
   if (!student) {
@@ -13,23 +14,21 @@ export function calculateCGPA(student: StudentCourseData | undefined): void {
 
     // If this is the first semester, the CGPA is just the GPA of the first semester
     if (i === 0) {
-      currentSemester.cgpa = currentSemester.gpa;
+      currentSemester.cgpa = parseFloat(calculateGPA(student,i+1).toFixed(2));
     } else {
       // Add up the earned credits from previous semesters
       earnedCreditsNow += student.semestersPassed[i - 1].earnedCredits;
 
       // Calculate the total weighted GPA using the CGPA of previous semester
-      totalWeightedGPA = (student.semestersPassed[i - 1].cgpa * earnedCreditsNow) + (currentSemester.gpa * currentSemester.earnedCredits);
+      totalWeightedGPA = (student.semestersPassed[i - 1].cgpa * earnedCreditsNow) + (calculateGPA(student,i+1)* currentSemester.earnedCredits);
 
       // Update CGPA for the current semester
-      currentSemester.cgpa = totalWeightedGPA / (earnedCreditsNow + currentSemester.earnedCredits);
-      // student.semestersPassed[0]["gpa"] = totalWeightedGPA;
-      student.semestersPassed[i]["cgpa"]= totalWeightedGPA / (earnedCreditsNow + currentSemester.earnedCredits);
+      currentSemester.cgpa = Math.round((totalWeightedGPA / (earnedCreditsNow + currentSemester.earnedCredits))*100)/100;
 
     }
 
-    // Update GPA in case you want to modify it (optional, depending on your logic)
-    student.semestersPassed[i]["gpa"] = currentSemester.gpa;
+    // // Update GPA in case you want to modify it (optional, depending on your logic)
+    // student.semestersPassed[i]["gpa"] = currentSemester.gpa;
   }
 }
 

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {studentData} from "../CourseData";
 import {NgClass, NgFor, NgIf} from "@angular/common";
 import {Student} from "../models/Student";
@@ -29,7 +29,8 @@ export class StudentListComponent implements OnInit{
   filterData(): void {
     const searchText = this.searchText.toLowerCase();
 
-    this.filteredStudentData = this.studentData.filter(student => {
+    this.filteredStudentData = this.studentData.filter(
+      student => {
       return (
         student.name.toLowerCase().includes(searchText) ||
         student.rollNumber.toString().includes(searchText) ||
@@ -44,7 +45,7 @@ export class StudentListComponent implements OnInit{
         student.department === this.selectedDepartment
       );
     } else {
-      this.filteredStudentData = [...this.studentData]; // Show all if no department is selected
+      this.filteredStudentData = [...this.studentData];
     }
   }
 
@@ -55,4 +56,22 @@ export class StudentListComponent implements OnInit{
   generateNext(student:Student) {
     this.router.navigate(['/transcript'], {queryParams: {rollNumber: student.rollNumber}})
   }
+
+  /* feature to make '/' focus on search */
+
+  // @HostListener('window:keydown', ['$event'])
+  // handleKeyDown(event: KeyboardEvent) {
+  //   // If '/' key is pressed
+  //   if (event.key === '/') {
+  //     event.preventDefault(); // Prevent default behavior of the '/' key
+  //     this.focusOnSearchBar(); // Focus on the search bar
+  //   }
+  // }
+  // focusOnSearchBar(){
+  //   const searchBar = document.getElementById('searchBar') as HTMLInputElement;
+  //   if (searchBar) {
+  //     searchBar.focus();
+  //   }
+  // }
+
 }

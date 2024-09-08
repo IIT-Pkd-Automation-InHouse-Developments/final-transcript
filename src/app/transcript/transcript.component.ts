@@ -4,6 +4,7 @@ import {NgForOf, NgIf} from "@angular/common";
 import {StudentCourseData} from "../models/StudentData";
 import {courseData, getStudentByRollNumber} from "../CourseData";
 import {Attendance, CourseCategory, Grade, Semester} from "../models/Semester";
+import {calculateCGPA} from "../helper/calculateCGP";
 
 @Component({
   selector: 'app-transcript',
@@ -17,16 +18,22 @@ import {Attendance, CourseCategory, Grade, Semester} from "../models/Semester";
   styleUrl: './transcript.component.css'
 })
 export class TranscriptComponent implements OnInit{
-  protected student: StudentCourseData | undefined;
+   protected student: StudentCourseData | undefined;
    oddSemesters: Semester[] = [];
    evenSemesters: Semester[] = [];
-  constructor(private route :ActivatedRoute) {}
+   protected readonly courseData = courseData;
+   protected readonly Attendance = Attendance;
+   protected readonly Grade = Grade;
+   protected readonly Category = CourseCategory;
+   protected readonly CourseCategory = CourseCategory;
+   constructor(private route :ActivatedRoute) {}
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       const rollNumber = params['rollNumber'];
       if (rollNumber) {
         this.student = getStudentByRollNumber(Number(rollNumber));
         this.separateSemesters(this.student?.semestersPassed)
+        calculateCGPA(this.student)
       }
     });
   }
@@ -35,10 +42,4 @@ export class TranscriptComponent implements OnInit{
     this.oddSemesters = semesters.filter(sem => sem.semesterID % 2 !== 0);
     this.evenSemesters = semesters.filter(sem => sem.semesterID % 2 === 0);
   }
-
-  protected readonly courseData = courseData;
-  protected readonly Attendance = Attendance;
-  protected readonly Grade = Grade;
-  protected readonly Category = CourseCategory;
-  protected readonly CourseCategory = CourseCategory;
 }
