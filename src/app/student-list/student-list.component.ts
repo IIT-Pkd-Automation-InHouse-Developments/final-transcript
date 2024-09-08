@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {studentData} from "../CourseData";
 import {NgClass, NgFor, NgIf} from "@angular/common";
 import {Student} from "../models/Student";
