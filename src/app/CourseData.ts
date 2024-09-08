@@ -1,8 +1,6 @@
 import {StudentCourseData} from "./models/StudentData";
 import {Attendance, CourseCategory, Grade} from "./models/Semester";
 import {Student} from "./models/Student";
-import {calculateGPA} from "./helper/calculateGPA";
-
 export let studentData: Student[] =
 [
 
