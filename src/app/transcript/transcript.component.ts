@@ -5,6 +5,7 @@ import {StudentCourseData} from "../models/StudentData";
 import {courseData, getStudentByRollNumber} from "../CourseData";
 import {Attendance, CourseCategory, Grade, Semester} from "../models/Semester";
 import {calculateCGPA} from "../helper/calculateCGP";
+import {calculateGPA} from "../helper/calculateGPA";
 
 @Component({
   selector: 'app-transcript',
@@ -24,6 +25,8 @@ export class TranscriptComponent implements OnInit{
    protected readonly courseData = courseData;
    protected readonly Attendance = Attendance;
    protected readonly Grade = Grade;
+   protected semestersDone : number | undefined=0;
+   protected gpaList : number[]=[];
    protected readonly Category = CourseCategory;
    protected readonly CourseCategory = CourseCategory;
    constructor(private route :ActivatedRoute) {}
@@ -34,6 +37,12 @@ export class TranscriptComponent implements OnInit{
         this.student = getStudentByRollNumber(Number(rollNumber));
         this.separateSemesters(this.student?.semestersPassed)
         calculateCGPA(this.student)
+        this.semestersDone = this.student?.semestersPassed.length;
+        if(this.semestersDone!=undefined) {
+          for (let i = 0; i <this.semestersDone; i++) {
+            this.gpaList[i] = calculateGPA(this.student, i+1);
+          }
+        }
       }
     });
   }

@@ -1,7 +1,20 @@
 <div *ngIf="student == undefined">
   <a routerLink="/">Go home</a>
 </div>
+<style>
+  th{
 
+  }
+  th, td {
+    /*padding-left: 20%;
+    padding-right: 20%;*/
+
+    text-align: center ;
+    border: 1px solid black;
+    border-collapse: collapse;
+    width:150px;
+  }
+</style>
 
 <div *ngIf="student">
   <h1 class="page-title">TRANSCRIPT</h1>
@@ -85,6 +98,30 @@
         </div>
       </div>
 
+    </div>
+    <div>
+      <table style="width:100%" class="grade-table" >
+        <tr>
+          <th>Semester</th>
+          <td *ngFor="let semester of student.semestersPassed; let i = index">{{semester.semesterID}}</td>
+        </tr>
+        <tr>
+          <th>Total Credits</th>
+          <td *ngFor="let semester of student.semestersPassed; let i = index">{{semester.requiredCredits}}</td>
+        </tr>
+        <tr>
+          <th>Earned Credits</th>
+          <td *ngFor="let semester of student.semestersPassed; let i = index">{{semester.earnedCredits}}</td>
+        </tr>
+        <tr>
+          <th>GPA</th>
+          <td *ngFor="let gpa of gpaList; let i = index">{{gpa}}</td>
+        </tr>
+        <tr>
+          <th>CGPA</th>
+          <td *ngFor="let semester of student.semestersPassed; let i = index">{{semester.cgpa}}</td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>

@@ -41,7 +41,7 @@ function gradeToNum(grade : Grade) : number{
   return num;
 }
 
-export function calculateGPA(student : StudentCourseData, semesterID : number): number {
+export function calculateGPA(student : StudentCourseData | undefined, semesterID : number): number {
   if(!student || !semesterID){
     return -1;
   }

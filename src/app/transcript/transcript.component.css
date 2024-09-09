@@ -57,3 +57,16 @@
 .semester-table tbody tr:hover {
   background-color: #e6f7ff;
 }
+.grade-table{
+  border: 1px solid black;
+  border-collapse: collapse;
+  width:100%
+}
+/*.grade-th{
+  padding : 5px;
+  text-align: left;
+}
+.grade-td{
+  padding : 5px;
+  text-align: left;
+}*/

@@ -51,7 +51,7 @@
       <td>{{ student.name }}</td>
       <td>{{ student.department }}</td>
       <td>
-        <button *ngIf="selectedStudent === i" (click)="generateNext(student)">Generate</button>
+        <button class="hidden-button" *ngIf="selectedStudent === i" (click)="generateNext(student)">Generate</button>
       </td>
     </tr>
   </tbody>
