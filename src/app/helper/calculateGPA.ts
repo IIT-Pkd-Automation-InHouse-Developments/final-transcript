@@ -1,7 +1,5 @@
 import {StudentCourseData} from "../models/StudentData";
 import {Grade} from "../models/Semester";
-import {courseData} from "../CourseData"
-import {round} from "@popperjs/core/lib/utils/math";
 function gradeToNum(grade : Grade) : number{
   let num;
   switch (grade) {
