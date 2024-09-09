@@ -3,6 +3,7 @@ import {Grade} from "../models/Semester";
 function gradeToNum(grade : Grade) : number{
   let num;
   switch (grade) {
+
     case Grade.S:
       num = 10;
       break
@@ -33,6 +34,12 @@ function gradeToNum(grade : Grade) : number{
     case Grade.U:
       num=0;
       break;
+    case Grade.F:
+      num=0;
+      break;
+    case Grade.P:
+      num=0;
+      break;
     default:
       num=-1;
   }
@@ -47,10 +54,25 @@ export function calculateGPA(student : StudentCourseData | undefined, semesterID
   if(!semester) {
     return -1;
   }
-  let earnedCredits=0;
-  for(let i=0; i<semester.courses.length; i++){
-    earnedCredits+=(gradeToNum(semester.courses[i].grade))*(semester.courses[i].credits);
+  if(semester.gpa==-1 || semester.gpa==10) {
+    let earnedCredits = 0;
+    let ec = 0;
+    let requiredCredits = semester.requiredCredits;
+    for (let i = 0; i < semester.courses.length; i++) {
+      if (semester.courses[i].grade == Grade.P) {
+        requiredCredits = requiredCredits - semester.courses[i].credits;
+      }
+      earnedCredits += (gradeToNum(semester.courses[i].grade)) * (semester.courses[i].credits);
+      if (semester.courses[i].grade == Grade.F || semester.courses[i].grade == Grade.W || semester.courses[i].grade == Grade.N || semester.courses[i].grade == Grade.U || semester.courses[i].grade == Grade.I) {
+        continue;
+      }
+      ec += semester.courses[i].credits;
+    }
+
+    semester.earnedCredits=ec;
+    semester.gpa = parseFloat((earnedCredits / requiredCredits).toFixed(2))
+    return parseFloat((earnedCredits / requiredCredits).toFixed(2));
   }
-  return parseFloat((earnedCredits / semester.requiredCredits).toFixed(2));
+  return semester.gpa;
 }
 
