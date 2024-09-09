@@ -1,6 +1,6 @@
 export enum Grade {
   "S", "A", "B", "C", "D","E",
-  "U", "I", "W", "P", "Y", "N"
+  "U", "I", "W", "P", "Y", "N", "F"
 }
 export enum Attendance{
   "VG", "G", "P"
@@ -15,9 +15,9 @@ export interface Course {
   courseID: string;
   courseTitle: string;
   credits: number;
-  grade: Grade;
-  attendance: Attendance;
-  category: CourseCategory;
+  grade: any;
+  attendance: any;
+  category: any;
   passed: boolean;
 }
 
