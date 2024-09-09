@@ -2428,7 +2428,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -3035,7 +3035,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -3642,7 +3642,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -4249,7 +4249,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -4856,7 +4856,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -5463,7 +5463,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -6070,7 +6070,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -6677,7 +6677,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -7284,7 +7284,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -7891,7 +7891,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -8498,7 +8498,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -9105,7 +9105,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -9712,7 +9712,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -10319,7 +10319,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -10926,7 +10926,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -11533,7 +11533,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -12140,7 +12140,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -12747,7 +12747,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -13354,7 +13354,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -13961,7 +13961,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -14568,7 +14568,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -15175,7 +15175,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -15782,7 +15782,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -16389,7 +16389,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -16996,7 +16996,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -17603,7 +17603,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -18210,7 +18210,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -18817,7 +18817,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -19424,7 +19424,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -20031,7 +20031,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -20638,7 +20638,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -21245,7 +21245,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -21852,7 +21852,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -22459,7 +22459,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -23066,7 +23066,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -23673,7 +23673,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -24280,7 +24280,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -24887,7 +24887,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -25494,7 +25494,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -26101,7 +26101,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -26708,7 +26708,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -27315,7 +27315,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -27922,7 +27922,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -28529,7 +28529,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -29136,7 +29136,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -29743,7 +29743,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -30350,7 +30350,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -30957,7 +30957,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -31564,7 +31564,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -32171,7 +32171,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -32778,7 +32778,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -33385,7 +33385,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.F",
+              grade: Grade.F,
               attendance: Attendance.VG,
               passed: true
             },
@@ -33992,7 +33992,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
@@ -34599,7 +34599,7 @@ export let courseData : StudentCourseData[] = [
               courseTitle: "Cloud Computing (NPTEL)",
               category: CourseCategory.PME,
               credits: 3.0,
-              grade: "Grade.P",
+              grade: Grade.P,
               attendance: Attendance.VG,
               passed: true
             },
