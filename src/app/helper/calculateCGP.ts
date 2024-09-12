@@ -19,7 +19,6 @@ export function calculateCGPA(student: StudentCourseData | undefined): void {
       // Add up the earned credits from previous semesters
       earnedCreditsNow += student.semestersPassed[i - 1].earnedCredits;
 
-      // Calculate the total weighted GPA using the CGPA of previous semester
       totalWeightedGPA = (student.semestersPassed[i - 1].cgpa * earnedCreditsNow) + (calculateGPA(student,i+1)* currentSemester.earnedCredits);
 
       // Update CGPA for the current semester
@@ -27,8 +26,7 @@ export function calculateCGPA(student: StudentCourseData | undefined): void {
 
     }
 
-    // // Update GPA in case you want to modify it (optional, depending on your logic)
-    // student.semestersPassed[i]["gpa"] = currentSemester.gpa;
+
   }
 }
 
