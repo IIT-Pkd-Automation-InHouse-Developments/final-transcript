@@ -11,8 +11,5 @@ import {StudentListComponent} from "./student-list/student-list.component";
 })
 export class AppComponent {
   title = 'final-transcript';
-  // add logic to store gpa in the student model
-  // if already present, fetch it instead of
-  // recalculating
-//  gpa : number = calculateGPA(Data[1],1);
+
 }
