@@ -6,23 +6,35 @@
     text-align: center;
     border: 1px solid black;
     border-collapse: collapse;
-    width: 150px;
+    padding: 10px;
+    width: auto;
   }
-
+  .generate-button{
+    background-color: #004080;
+    border: none;
+    color: white;
+  }
+  .generate-button-class{
+    text-align: center;
+    padding:10px;
+  }
   .transcript-container {
     display: flex;
     flex-direction: column;
+    margin:10px;
   }
 
   .semester-pair {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    flex-wrap: wrap;
   }
 
   .semester-column {
     flex: 1;
     margin: 0 10px;
+    min-width: 300px;
   }
 
   .semester-column h2 {
@@ -31,15 +43,46 @@
 
   .grade-table {
     margin-top: 20px;
+    width:100%;
     border: 1px solid black;
     border-collapse: collapse;
+  }
+  @media(max-width: 1024px){
+    .semester-pair{
+      flex-direction: column;
+    }
+    .semester-column{
+      margin:0;
+      width:100%;
+    }
+  }
+  @media(max-width: 768px){
+    th,td{
+      font-size: 0.9em;
+    }
+    .semester-pair{
+      margin-bottom: 10px;
+    }
+    .page-title{
+      text-align:center;
+    }
+
+    @media(max-width: 480px){
+      th, td{
+        font-size:0.8em;
+        padding:8px;
+      }
+      .grade-table{
+        font-size: 0.85em;
+      }
+    }
   }
 </style>
 
 <div *ngIf="student">
   <h1 class="page-title">TRANSCRIPT</h1>
   <!-- Transcript Container -->
-  <div class="transcript-container">
+  <div class="transcript-container" id="transcript-container">
 
     <!-- Semester Tables Section -->
     <div class="semester-pair" *ngFor="let pair of semesterPairs;">
@@ -129,4 +172,11 @@
     </div>
   </div>
   <app-transcript-info></app-transcript-info>
+
+  <div class="generate-button-class">
+    <button class="generate-button" (click)="generatePDF()">Generate PDF</button>
+  </div>
+
+
+
 </div>
