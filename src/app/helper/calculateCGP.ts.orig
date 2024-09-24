@@ -17,9 +17,21 @@ export function calculateCGPA(student: StudentCourseData | undefined): void {
       currentSemester.cgpa = parseFloat(calculateGPA(student,i+1).toFixed(2));
     } else {
       earnedCreditsNow += student.semestersPassed[i - 1].earnedCredits;
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/main
       totalWeightedGPA = (student.semestersPassed[i - 1].cgpa * earnedCreditsNow) + (calculateGPA(student,i+1)* currentSemester.earnedCredits);
       currentSemester.cgpa = Math.round((totalWeightedGPA / (earnedCreditsNow + currentSemester.earnedCredits))*100)/100;
 
     }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> refs/remotes/origin/main
   }
 }
+
+
+
