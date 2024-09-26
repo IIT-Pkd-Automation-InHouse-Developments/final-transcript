@@ -15,24 +15,28 @@ export class PdfGeneratorComponent {
 
     if (element) {
       // Use html2canvas to capture the content
-      html2canvas(element, { scale: 5, useCORS: true }).then(canvas => {
-        // Convert canvas to image data with a lower quality to reduce file size
-        const imgData = canvas.toDataURL('image/jpeg', 0.7); // 0.7 is the quality setting (0.0 to 1.0)
-
+      html2canvas(element, { scale: 2, useCORS: true }).then(canvas => {
         // Create a new jsPDF instance
         const pdf = new jsPDF('p', 'mm', 'a4');
         const imgWidth = 210; // A4 size width in mm
         const pageHeight = 297; // A4 size height in mm
         const imgHeight = (canvas.height * imgWidth) / canvas.width; // Maintain aspect ratio
 
-        // Check if image height exceeds the page height and scale down if necessary
-        const pageRatio = imgHeight / pageHeight;
-        const scale = pageRatio > 1 ? pageRatio : 1;
-        const scaledImgWidth = imgWidth;
-        const scaledImgHeight = imgHeight / scale;
+        let heightLeft = imgHeight;
+        let position = 0;
+        const imgData = canvas.toDataURL('image/jpeg', 0.9); // 0.9 for better quality
 
-        // Add image to PDF
-        pdf.addImage(imgData, 'JPEG', 0, 0, scaledImgWidth, scaledImgHeight);
+        // Add the first image (page)
+        pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+
+        // Add more pages if necessary
+        while (heightLeft > 0) {
+          position = heightLeft - imgHeight; // Adjust position for each new page
+          pdf.addPage();
+          pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+        }
 
         // Save the generated PDF
         pdf.save('transcript.pdf');

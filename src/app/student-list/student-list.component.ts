@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {studentData} from "../CourseData";
-import {NgClass, NgFor, NgIf} from "@angular/common";
-import {Student} from "../models/Student";
-import {FormsModule} from "@angular/forms";
-import {RouterOutlet, RouterLink, Router} from "@angular/router";
-
+import { Component, OnInit } from '@angular/core';
+import { studentData } from "../CourseData";
+import { NgClass, NgFor, NgIf } from "@angular/common";
+import { Student } from "../models/Student";
+import { FormsModule } from "@angular/forms";
+import { RouterOutlet, RouterLink, Router } from "@angular/router";
+import { Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-student-list',
@@ -13,24 +14,43 @@ import {RouterOutlet, RouterLink, Router} from "@angular/router";
   templateUrl: './student-list.component.html',
   styleUrl: './student-list.component.css'
 })
-export class StudentListComponent implements OnInit{
+export class StudentListComponent implements OnInit {
 
   protected readonly studentData = studentData;
-  filteredStudentData: Student[] = [...this.studentData];
+  filteredStudentData: Student[] = [];
   searchText: string = '';
+  searchSubject: Subject<string> = new Subject<string>(); // Create a subject for search text changes
   protected selectedDepartment: string = '';
   selectedStudent: number | null = null;
 
-  constructor(private router : Router) { }
+  constructor(private router: Router) {}
+
   ngOnInit(): void {
-    this.filterData();
+    // Subscribe to the searchSubject and apply debounceTime and distinctUntilChanged
+    this.searchSubject.pipe(
+      debounceTime(200),           // Wait for 2 seconds of no activity
+      distinctUntilChanged()         // Only emit if the value has changed
+    ).subscribe(searchText => {
+      this.filterData(searchText);
+    });
+
+    // Initialize filtered data
+    this.filteredStudentData = [...this.studentData];
   }
 
-  filterData(): void {
-    const searchText = this.searchText.toLowerCase();
+  onSearchTextChange(newSearchText: string): void {
+    this.searchText = newSearchText;
+    this.searchSubject.next(this.searchText); // Push the new search text to the subject
+  }
 
-    this.filteredStudentData = this.studentData.filter(
-      student => {
+  filterData(searchText: string): void {
+    if (!searchText.trim()) {
+      this.filteredStudentData = [...this.studentData];
+      return;
+    }
+
+    searchText = searchText.toLowerCase();
+    this.filteredStudentData = this.studentData.filter(student => {
       return (
         student.name.toLowerCase().includes(searchText) ||
         student.rollNumber.toString().includes(searchText) ||
@@ -53,12 +73,11 @@ export class StudentListComponent implements OnInit{
     this.selectedStudent = index; // Set the selected student by index
   }
 
-  generateNext(student:Student) {
-    this.router.navigate(['/transcript'], {queryParams: {rollNumber: student.rollNumber}})
+  generateNext(student: Student) {
+    this.router.navigate(['/transcript'], { queryParams: { rollNumber: student.rollNumber } });
   }
 
-  /* feature to make '/' focus on search */
-
+  /* Feature to make '/' focus on search */
   // @HostListener('window:keydown', ['$event'])
   // handleKeyDown(event: KeyboardEvent) {
   //   // If '/' key is pressed
@@ -67,11 +86,10 @@ export class StudentListComponent implements OnInit{
   //     this.focusOnSearchBar(); // Focus on the search bar
   //   }
   // }
-  // focusOnSearchBar(){
+  // focusOnSearchBar() {
   //   const searchBar = document.getElementById('searchBar') as HTMLInputElement;
   //   if (searchBar) {
   //     searchBar.focus();
   //   }
   // }
-
 }

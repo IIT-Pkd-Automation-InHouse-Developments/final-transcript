@@ -80,10 +80,10 @@
 </style>
 
 <div *ngIf="student">
-  <h1 class="page-title">TRANSCRIPT</h1>
+
   <!-- Transcript Container -->
   <div class="transcript-container" id="transcript-container">
-
+    <h1 class="page-title">TRANSCRIPT</h1>
     <!-- Semester Tables Section -->
     <div class="semester-pair" *ngFor="let pair of semesterPairs;">
       <!-- Odd Semester Column -->
@@ -170,7 +170,8 @@
         </tr>
       </table>
     </div>
+    <app-transcript-info></app-transcript-info>
   </div>
-  <app-transcript-info></app-transcript-info>
+
   <app-pdf-generator></app-pdf-generator>
 </div>

@@ -8,11 +8,10 @@
 
 -->
 <div class="search-container">
-<input type="search"
-         name="Search students"
-         placeholder="Search graduated students by name, roll number, or department"
-         [(ngModel)]="searchText"
-         (input)="filterData()" />
+  <input [(ngModel)]="searchText"
+         (ngModelChange)="onSearchTextChange($event)"
+         placeholder="Search Students" />
+
 </div>
 
 <!--
