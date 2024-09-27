@@ -1,137 +1,68 @@
 <div *ngIf="student == undefined">
   <a routerLink="/">Go home</a>
 </div>
-<style>
-  th, td {
-    text-align: center;
-    border: 1px solid black;
-    border-collapse: collapse;
-    padding: 10px;
-    width: auto;
-  }
-
-  .transcript-container {
-    display: flex;
-    flex-direction: column;
-    margin:10px;
-  }
-
-  .semester-pair {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-  }
-
-  .semester-column {
-    flex: 1;
-    margin: 0 10px;
-    min-width: 300px;
-  }
-
-  .semester-column h2 {
-    text-align: center;
-  }
-
-  .grade-table {
-    margin-top: 20px;
-    width:100%;
-    border: 1px solid black;
-    border-collapse: collapse;
-  }
-  @media(max-width: 1024px){
-    .semester-pair{
-      flex-direction: column;
-    }
-    .semester-column{
-      margin:0;
-      width:100%;
-    }
-  }
-  @media(max-width: 768px){
-    th,td{
-      font-size: 0.9em;
-    }
-    .semester-pair{
-      margin-bottom: 10px;
-    }
-    .page-title{
-      text-align:center;
-    }
-
-    @media(max-width: 480px){
-      th, td{
-        font-size:0.8em;
-        padding:8px;
-      }
-      .grade-table{
-        font-size: 0.85em;
-      }
-    }
-  }
-</style>
 
 <div *ngIf="student">
-
   <!-- Transcript Container -->
-  <div class="transcript-container" id="transcript-container">
-    <h1 class="page-title">TRANSCRIPT</h1>
+  <div class="container-fluid my-4">
+    <h1 class="text-center">TRANSCRIPT</h1>
+
     <!-- Semester Tables Section -->
-    <div class="semester-pair" *ngFor="let pair of semesterPairs;">
+    <div class="row" *ngFor="let pair of semesterPairs;">
       <!-- Odd Semester Column -->
-      <div class="semester-column odd">
-        <h2>Semester {{ pair.odd.semesterID }}</h2>
-        <table class="semester-table">
-          <thead>
-          <tr>
-            <th>Sno.</th>
-            <th>Course Code</th>
-            <th>Course Name</th>
-            <th>Course Category</th>
-            <th>Course Credit</th>
-            <th>Course Grade</th>
-            <th>Attendance Grade</th>
-          </tr>
+      <div class="col-12 col-lg-6 mb-4">
+        <h2 class="text-center">Semester {{ pair.odd.semesterID }}</h2>
+        <table class="table table-bordered table-striped table-hover text-center">
+          <thead class="thead-dark">
+            <tr>
+              <th>Sno.</th>
+              <th>Course Code</th>
+              <th>Course Name</th>
+              <th>Course Category</th>
+              <th>Course Credit</th>
+              <th>Course Grade</th>
+              <th>Attendance Grade</th>
+            </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let course of pair.odd.courses; let i = index">
-            <td>{{ i + 1 }}</td>
-            <td>{{ course.courseID }}</td>
-            <td>{{ course.courseTitle }}</td>
-            <td>{{ CourseCategory[course.category] }}</td>
-            <td>{{ course.credits }}</td>
-            <td>{{ Grade[course.grade] }}</td>
-            <td>{{ Attendance[course.attendance] }}</td>
-          </tr>
+            <tr *ngFor="let course of pair.odd.courses; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ course.courseID }}</td>
+              <td>{{ course.courseTitle }}</td>
+              <td>{{ CourseCategory[course.category] }}</td>
+              <td>{{ course.credits }}</td>
+              <td>{{ Grade[course.grade] }}</td>
+              <td>{{ Attendance[course.attendance] }}</td>
+            </tr>
           </tbody>
         </table>
       </div>
 
       <!-- Even Semester Column -->
-      <div class="semester-column even" *ngIf="pair.even">
-        <h2>Semester {{ pair.even.semesterID }}</h2>
-        <table class="semester-table">
-          <thead>
-          <tr>
-            <th>Sno.</th>
-            <th>Course Code</th>
-            <th>Course Name</th>
-            <th>Course Category</th>
-            <th>Course Credit</th>
-            <th>Course Grade</th>
-            <th>Attendance Grade</th>
-          </tr>
+      <div class="col-12 col-lg-6 mb-4" *ngIf="pair.even">
+        <h2 class="text-center">Semester {{ pair.even.semesterID }}</h2>
+        <table class="table table-bordered table-striped table-hover text-center">
+          <thead class="thead-dark">
+            <tr>
+              <th>Sno.</th>
+              <th>Course Code</th>
+              <th>Course Name</th>
+              <th>Course Category</th>
+              <th>Course Credit</th>
+              <th>Course Grade</th>
+              <th>Attendance Grade</th>
+            </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let course of pair.even.courses; let i = index">
-            <td>{{ i + 1 }}</td>
-            <td>{{ course.courseID }}</td>
-            <td>{{ course.courseTitle }}</td>
-            <td>{{ CourseCategory[course.category] }}</td>
-            <td>{{ course.credits }}</td>
-            <td>{{ Grade[course.grade] }}</td>
-            <td>{{ Attendance[course.attendance] }}</td>
-          </tr>
+            <tr *ngFor="let course of pair.even.courses; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ course.courseID }}</td>
+              <td>{{ course.courseTitle }}</td>
+              <td>{{ CourseCategory[course.category] }}</td>
+              <td>{{ course.credits }}</td>
+              <td>{{ Grade[course.grade] }}</td>
+              <td>{{ Attendance[course.attendance] }}</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -139,29 +70,34 @@
 
     <!-- Grades Table Section -->
     <div>
-      <table style="width:100%" class="grade-table">
-        <tr>
-          <th>Semester</th>
-          <td *ngFor="let semester of student.semestersPassed; let i = index">{{semester.semesterID}}</td>
-        </tr>
-        <tr>
-          <th>Total Credits</th>
-          <td *ngFor="let semester of student.semestersPassed; let i = index">{{semester.requiredCredits}}</td>
-        </tr>
-        <tr>
-          <th>Earned Credits</th>
-          <td *ngFor="let semester of student.semestersPassed; let i = index">{{semester.earnedCredits}}</td>
-        </tr>
-        <tr>
-          <th>GPA</th>
-          <td *ngFor="let gpa of gpaList; let i = index">{{gpa}}</td>
-        </tr>
-        <tr>
-          <th>CGPA</th>
-          <td *ngFor="let semester of student.semestersPassed; let i = index">{{semester.cgpa}}</td>
-        </tr>
+      <table class="table table-bordered text-center">
+        <thead>
+          <tr>
+            <th>Semester</th>
+            <th *ngFor="let semester of student.semestersPassed; let i = index">{{ semester.semesterID }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Total Credits</th>
+            <td *ngFor="let semester of student.semestersPassed; let i = index">{{ semester.requiredCredits }}</td>
+          </tr>
+          <tr>
+            <th>Earned Credits</th>
+            <td *ngFor="let semester of student.semestersPassed; let i = index">{{ semester.earnedCredits }}</td>
+          </tr>
+          <tr>
+            <th>GPA</th>
+            <td *ngFor="let gpa of gpaList; let i = index">{{ gpa }}</td>
+          </tr>
+          <tr>
+            <th>CGPA</th>
+            <td *ngFor="let semester of student.semestersPassed; let i = index">{{ semester.cgpa }}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
+
     <app-transcript-info></app-transcript-info>
   </div>
 
