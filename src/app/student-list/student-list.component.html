@@ -7,51 +7,55 @@
   return the JSON by doing all the hard work)
 
 -->
-<div class="search-container">
-  <input [(ngModel)]="searchText"
-         (ngModelChange)="onSearchTextChange($event)"
-         placeholder="Search Students" />
+<div class="container mt-3">
+  <div class="row mb-3">
+    <div class="col">
+      <input [(ngModel)]="searchText"
+             (ngModelChange)="onSearchTextChange($event)"
+             class="form-control"
+             placeholder="Search Students" />
+    </div>
+  </div>
 
+  <div class="row mb-3">
+    <div class="col">
+      <label for="department" class="form-label"><strong>Filter</strong></label>
+      <select id="department" [(ngModel)]="selectedDepartment" (change)="filterByDepartment()" class="form-select">
+        <option value="">All</option>
+        <option value="CE">CE</option>
+        <option value="CSE">CSE</option>
+        <option value="EE">EE</option>
+        <option value="ME">ME</option>
+        <option value="DSE">DSE</option>
+      </select>
+    </div>
+  </div>
+
+  <div *ngIf="filteredStudentData.length > 0">
+    <p>{{ filteredStudentData.length }} students found.</p>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Roll Number</th>
+        <th scope="col">Name</th>
+        <th scope="col">Department</th>
+        <th>Transcript</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of filteredStudentData; let i = index"
+          [ngClass]="{'table-primary': selectedStudent === i}"
+          (click)="selectStudent(i)">
+        <td>{{ student.rollNumber }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.department }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="generateNext(student)">Generate</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-<!--
-    Filter button: TODO: make search only filtered people when filter is defined.
--->
-<div class="filter-container">
-  <label for="department" class="filter-label"><strong>Filter</strong></label>
-  <select id="department" [(ngModel)]="selectedDepartment" (change)="filterByDepartment()" class="filter-select">
-    <option value="">All</option>
-    <option value="CE">CE</option>
-    <option value="CSE">CSE</option>
-    <option value="EE">EE</option>
-    <option value="ME">ME</option>
-    <option value="DSE">DSE</option>
-  </select>
-</div>
-
-<div *ngIf="filteredStudentData.length > 0">
-  <p>{{ filteredStudentData.length }} students found.</p>
-</div>
-<table class="student-table">
-  <thead>
-    <tr>
-      <th>Roll Number</th>
-      <th>Name</th>
-      <th>Department</th>
-      <th>Transcript</th>
-    </tr>
-  </thead>
-  <tbody>
-<!--  TODO: Look into ngClass -->
-    <tr *ngFor="let i = index; let student of filteredStudentData"
-        [ngClass]="{'selected-row': selectedStudent === i}"
-        (click)="selectStudent(i)">
-      <td>{{ student.rollNumber }}</td>
-      <td>{{ student.name }}</td>
-      <td>{{ student.department }}</td>
-      <td>
-        <button class="hidden-button" *ngIf="selectedStudent === i" (click)="generateNext(student)">Generate</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
