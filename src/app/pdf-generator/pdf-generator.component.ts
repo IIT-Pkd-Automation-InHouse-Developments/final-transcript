@@ -15,7 +15,7 @@ export class PdfGeneratorComponent {
 
     if (element) {
       // Use html2canvas to capture the content
-      html2canvas(element, { scale: 2, useCORS: true }).then(canvas => {
+      html2canvas(element, { scale: 3, useCORS: true }).then(canvas => {
         // Create a new jsPDF instance
         const pdf = new jsPDF('p', 'mm', 'a4');
         const imgWidth = 210; // A4 size width in mm
