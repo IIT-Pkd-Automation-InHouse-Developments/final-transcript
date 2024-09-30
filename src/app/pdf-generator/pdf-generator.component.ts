@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -10,7 +10,9 @@ import html2canvas from 'html2canvas';
   styleUrl: './pdf-generator.component.css'
 })
 export class PdfGeneratorComponent {
+   @ViewChild('content', {static:false }) content!: ElementRef;
   generatePDF() {
+
     const element = document.getElementById('transcript-container');
 
     if (element) {
