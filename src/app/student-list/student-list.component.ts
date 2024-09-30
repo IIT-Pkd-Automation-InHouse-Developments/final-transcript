@@ -28,22 +28,28 @@ export class StudentListComponent implements OnInit {
   ngOnInit(): void {
     // Subscribe to the searchSubject and apply debounceTime and distinctUntilChanged
     this.searchSubject.pipe(
-      debounceTime(200),           // Wait for 2 seconds of no activity
+      debounceTime(200),           // Wait for 2 ms of no activity
       distinctUntilChanged()         // Only emit if the value has changed
     ).subscribe(searchText => {
       this.filterData(searchText);
     });
 
     // Initialize filtered data
-    this.filteredStudentData = [...this.studentData];
+    this.filteredStudentData = [];
   }
 
   onSearchTextChange(newSearchText: string): void {
     this.searchText = newSearchText;
+    if(this.searchText==''){
+      return;
+    }
     this.searchSubject.next(this.searchText); // Push the new search text to the subject
   }
 
   filterData(searchText: string): void {
+    if(searchText==''){
+      return
+    }
     if (!searchText.trim()) {
       this.filteredStudentData = [...this.studentData];
       return;
