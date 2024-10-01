@@ -10,7 +10,7 @@ import html2canvas from 'html2canvas';
   styleUrl: './pdf-generator.component.css'
 })
 export class PdfGeneratorComponent {
-   @ViewChild('content', {static:false }) content!: ElementRef;
+  @ViewChild('content', {static:false }) content!: ElementRef;
   generatePDF() {
 
     const element = document.getElementById('transcript-container');
