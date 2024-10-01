@@ -3,13 +3,11 @@
 </div>
 
 <div *ngIf="student">
-  <!-- Transcript Container -->
   <div class="container-fluid my-4" id="transcript-container">
     <h1 class="text-center">TRANSCRIPT</h1>
 
-    <!-- Semester Tables Section -->
     <div class="row" *ngFor="let pair of semesterPairs;">
-      <!-- Odd Semester Column -->
+
       <div class="col-12 col-lg-6 mb-4">
         <h2 class="text-center">Semester {{ pair.odd.semesterID }}</h2>
         <table class="table table-bordered table-striped table-hover text-center">
@@ -68,7 +66,6 @@
       </div>
     </div>
 
-    <!-- Grades Table Section -->
     <div>
       <table class="table table-bordered text-center">
         <thead>

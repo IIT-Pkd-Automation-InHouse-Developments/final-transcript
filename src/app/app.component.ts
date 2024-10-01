@@ -11,5 +11,4 @@ import {StudentListComponent} from "./student-list/student-list.component";
 })
 export class AppComponent {
   title = 'final-transcript';
-
 }
