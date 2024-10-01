@@ -19,17 +19,17 @@ export class StudentListComponent implements OnInit {
   protected readonly studentData = studentData;
   filteredStudentData: Student[] = [];
   searchText: string = '';
-  searchSubject: Subject<string> = new Subject<string>(); // Create a subject for search text changes
+  searchSubject: Subject<string> = new Subject<string>();
   protected selectedDepartment: string = '';
   selectedStudent: number | null = null;
 
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    // Subscribe to the searchSubject and apply debounceTime and distinctUntilChanged
+    // apply debounceTime and distinctUntilChanged
     this.searchSubject.pipe(
-      debounceTime(200),           // Wait for 2 ms of no activity
-      distinctUntilChanged()         // Only emit if the value has changed
+      debounceTime(200),           // Wait for 200 ms of no activity
+      distinctUntilChanged()         // Only proceed if the value has changed
     ).subscribe(searchText => {
       this.filterData(searchText);
     });
@@ -43,7 +43,7 @@ export class StudentListComponent implements OnInit {
     if(this.searchText==''){
       return;
     }
-    this.searchSubject.next(this.searchText); // Push the new search text to the subject
+    this.searchSubject.next(this.searchText);
   }
 
   filterData(searchText: string): void {
@@ -76,7 +76,7 @@ export class StudentListComponent implements OnInit {
   }
 
   selectStudent(index: number): void {
-    this.selectedStudent = index; // Set the selected student by index
+    this.selectedStudent = index;
   }
 
   generateNext(student: Student) {
