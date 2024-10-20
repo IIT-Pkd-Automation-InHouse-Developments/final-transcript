@@ -9,7 +9,7 @@ import {calculateGPA} from "../helper/calculateGPA";
 import {TranscriptInfoComponent} from "../transcript-info/transcript-info.component";
 import {PdfGeneratorComponent} from "../pdf-generator/pdf-generator.component"
 
-interface SemesterPair{
+export interface SemesterPair{
   odd:Semester;
   even:Semester|null;
 }
